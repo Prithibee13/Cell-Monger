@@ -5,6 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
 
 
+body
+{
+  margin: 0;
+}
+
 h1,h2,h3,h4
 {
   font-family: 'Roboto Condensed', sans-serif;;
@@ -36,15 +41,22 @@ p
 }
 
 
+#btn
+{
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .btn-p
 {
     background-color: #546de5;
     color: white;
     border: 2px solid transparent;
     display: block;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    
+    padding:0.35em 1.2em;
+    border-radius:0.12em;
 }
 
 

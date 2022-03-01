@@ -56,9 +56,9 @@ const gridMaker = (phoneDetails) =>
     `
     <div class="container">
     <div class="card w-50 h-100 mb-5 mx-auto">
-    <div class="row g-0">
+    <div class="row g-0 d-flex align-items-center">
       <div class="col-md-4">
-        <img src="${phoneImg}" class="img-fluid rounded-start" alt="...">
+        <img src="${phoneImg}" class="w-75 rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -164,11 +164,15 @@ const displayData = (mobileDetails) =>
 
     let brandName = document.getElementById("src").value;
 
+    let cardDiv = document.getElementById("cardDiv");
+
     let resultMessage;
     
     if(mobileDetails.status===false)
     {
         resultMessage = `No phones found of ${brandName}`; 
+
+        cardDiv.innerHTML = "";
     }
 
     else
@@ -176,12 +180,16 @@ const displayData = (mobileDetails) =>
         resultMessage = `Search Result for ${brandName}`
         const dataArray = mobileDetails.data;
 
-        let cardDiv = document.getElementById("cardDiv");
-
         let i = 0;
          
         cardDiv.innerHTML = "";
         
+        
+        let detailsSection = document.getElementById("details");
+
+
+        detailsSection.innerHTML = "";
+
         for(const data of dataArray) 
         {
             i++;
