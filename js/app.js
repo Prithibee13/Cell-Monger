@@ -4,6 +4,7 @@ const detailsFetching = (id) =>
 {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
 
+    location.href = "#details";
 
     //fetch api
     fetch(url)
@@ -55,8 +56,8 @@ const gridMaker = (phoneDetails) =>
     const grid =
     `
     <div class="container">
-    <div class="card w-50 h-100 mb-5 mx-auto">
-    <div class="row g-0 d-flex align-items-center">
+    <div class="card w-75 h-100 mb-5 mx-auto ">
+    <div class="row g-0 d-flex align-items-center p-4">
       <div class="col-md-4">
         <img src="${phoneImg}" class="w-75 rounded-start" alt="...">
       </div>
@@ -106,7 +107,7 @@ const cardMaker = (mobileData) =>
     let card = 
     `
     <div class="col">
-        <div class="card h-100">
+        <div class="card h-100 shadow-lg p-5">
             <img src='${phoneImg}' class="card-img-top w-50 h-50" alt="...">
                 <div class="card-body">
                 <h3 class="card-title">${phoneName}</h3>
@@ -136,6 +137,8 @@ const inputTaker = () =>
 {
     let brandName = document.getElementById("src").value;
 
+
+    location.href = "#phones";
     //show the spinner
     toggleLoder("block");
 
