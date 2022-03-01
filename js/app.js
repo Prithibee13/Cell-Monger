@@ -4,14 +4,78 @@ const detailsFetching = (id) =>
 
     fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => displayDetails(data))
 }
 
 
-const displayDetails = (data) =>
+const displayDetails = (details) =>
 {
+
+    const data = details.data;
+
+    let detailsSection = document.getElementById("details");
+
+    let article = document.createElement("article");
+
+    const grid = gridMaker(data);
+
+    article.innerHTML = `${grid}`;
+
+    detailsSection.append(article);
+
+    
     
 }
+
+
+const gridMaker = (phoneDetails) =>
+{
+
+    let phoneImg = phoneDetails.image;
+
+    let phoneBrand = phoneDetails.brand;
+    let phoneName = phoneDetails.name;
+
+    let releaseDate = phoneDetails.releaseDate;
+
+    const { storage , displaySize , chipSet , memory , sensors }= phoneDetails.mainFeatures;
+
+    console.log(sensors);
+    const grid =
+    `
+    <div class="container">
+    <div class="card w-50 h-100 mb-5 mx-auto">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="${phoneImg}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+
+          <h2 class="card-title">${phoneBrand} ${phoneName}</h2>
+          
+          <p class="card-text ">ReleaseDate: ${releaseDate}</p>
+          <p class="card-text ">Display: ${displaySize}</p>
+          <p class="card-text ">Chipset : ${chipSet}</p>
+          <p class="card-text ">Storage : ${storage}</p>
+          <p class="card-text ">Memory : ${memory}</p>
+          <p class="card-text ">Sensors : ${sensors}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+    `
+
+    return grid;
+}
+
+
+
+
+
 
 const cardMaker = (mobileData) =>
 {
@@ -68,7 +132,7 @@ const displayData = (mobileDetails) =>
 
     
 
-    for(data of dataArray) 
+    for(const data of dataArray) 
     {
         const gridContainer  = document.createElement("div");
         gridContainer.innerHTML = `

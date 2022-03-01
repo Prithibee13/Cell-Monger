@@ -16,6 +16,11 @@
   display: none;
 }
 
+#details
+{
+  margin-top: 20%;
+}
+
 
 .sk-chase {
     width: 40px;
