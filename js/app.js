@@ -1,13 +1,17 @@
+//fetch the mobile Details api
+
 const detailsFetching = (id) =>
 {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`;
 
+
+    //fetch api
     fetch(url)
     .then(response => response.json())
     .then(data => displayDetails(data))
 }
 
-
+//displaying the details
 const displayDetails = (details) =>
 {
 
@@ -17,14 +21,17 @@ const displayDetails = (details) =>
 
     let article = document.createElement("article");
 
+    //call the horizental card templete
     const grid = gridMaker(data);
 
+    // insert in child element
     article.innerHTML = `${grid}`;
 
+    //insert in main parents
     detailsSection.append(article);    
 }
 
-
+//horizental card templeate genarator function
 const gridMaker = (phoneDetails) =>
 {
 
@@ -73,9 +80,10 @@ const gridMaker = (phoneDetails) =>
 
 
 
-
+//grid card templete genarator function
 const cardMaker = (mobileData) =>
 {
+    //object Destruring
     const { brand, phone_name , image , slug } = mobileData;
 
     let phoneBrand;
@@ -107,33 +115,41 @@ const cardMaker = (mobileData) =>
     return card;
 }
 
-//
+//spinner toggler
 
 const toggleLoder = (style) =>
 {
     document.getElementById("spin").style.display = style;
 }
 
+
+//input from our UI
+
 const inputTaker = () =>
 {
     let brandName = document.getElementById("src").value;
 
+    //show the spinner
     toggleLoder("block");
 
+    //call the implementations
     apiFetching(brandName);
 
     
 }
+
 // Fetch the API
 const apiFetching = (searchText) =>
 {
     
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+    //fetch phone api
     fetch(url)
     .then(response => response.json())
     .then(data => displayData(data));
 }
 
+//display the mobiles of respective brands
 
 const displayData = (mobileDetails) =>
 {
