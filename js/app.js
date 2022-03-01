@@ -21,10 +21,7 @@ const displayDetails = (details) =>
 
     article.innerHTML = `${grid}`;
 
-    detailsSection.append(article);
-
-    
-    
+    detailsSection.append(article);    
 }
 
 
@@ -110,13 +107,27 @@ const cardMaker = (mobileData) =>
     return card;
 }
 
-//'
+//
 
-
-// Fetch the API
-const apiFetching =  () =>
+const toggleLoder = (style) =>
 {
-    let searchText = document.getElementById("src").value;
+    document.getElementById("spin").style.display = style;
+}
+
+const inputTaker = () =>
+{
+    let brandName = document.getElementById("src").value;
+
+    toggleLoder("block");
+
+    apiFetching(brandName);
+
+    
+}
+// Fetch the API
+const apiFetching = (searchText) =>
+{
+    
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
     .then(response => response.json())
@@ -166,7 +177,9 @@ const displayData = (mobileDetails) =>
         };
     }
 
+    toggleLoder("none")
+
     document.getElementById("result").innerText = resultMessage;
-    
+    document.getElementById("src").value = null;   
 }
 
