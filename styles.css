@@ -4,10 +4,16 @@
 }
 
 
-#btn
+.btn-p
 {
     background-color: #546de5;
     color: white;
+    border: 2px solid transparent;
+}
+
+#spin
+{
+  display: none;
 }
 
 

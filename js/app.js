@@ -1,15 +1,41 @@
-
-
-const cardMaker = (brand, img, titles) =>
+const detailsFetching = (id) =>
 {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data))
+}
+
+
+const displayDetails = (data) =>
+{
+    
+}
+
+const cardMaker = (mobileData) =>
+{
+    const { brand, phone_name , image , slug } = mobileData;
+
+    let phoneBrand;
+    let phoneName; 
+    let phoneImg;
+    let phoneId;
+
+    phoneBrand = brand;
+    phoneImg = image;
+    phoneName = phone_name;
+    phoneId = slug;
+
     let card = 
     `
     <div class="col">
         <div class="card h-100">
-            <img src='${img}' class="card-img-top w-50 h-50" alt="...">
+            <img src='${phoneImg}' class="card-img-top w-50 h-50" alt="...">
                 <div class="card-body">
-                <h3 class="card-title">${titles}</h3>
-                <h4 class="card-text">${brand}</h4>
+                <h3 class="card-title">${phoneName}</h3>
+                <h4 class="card-text">${phoneBrand}</h4>
+                <button class="btn-p" onclick="detailsFetching('${phoneId}')">Details</button>
                 </div>
             </div>
         </div>
@@ -19,6 +45,8 @@ const cardMaker = (brand, img, titles) =>
 
     return card;
 }
+
+//'
 
 
 // Fetch the API
@@ -38,23 +66,15 @@ const displayData = (mobileDetails) =>
 
     const cardDiv = document.getElementById("cardDiv");
 
-    let phoneBrand;
-    let phoneName; 
-    let phoneImg;
+    
 
     for(data of dataArray) 
     {
-        //console.log(data);
-        phoneBrand = data.brand;
-        phoneImg = data.image;
-        phoneName = data.phone_name;
-
         const gridContainer  = document.createElement("div");
         gridContainer.innerHTML = `
-            ${cardMaker(phoneBrand,phoneImg , phoneName)}
+            ${cardMaker(data)}
         `
         cardDiv.append(gridContainer);
-        console.log(cardDiv)
 
     };
 }
