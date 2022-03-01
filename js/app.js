@@ -21,6 +21,8 @@ const displayDetails = (details) =>
 
     let article = document.createElement("article");
 
+    detailsSection.innerHTML = "";
+
     //call the horizental card templete
     const grid = gridMaker(data);
 
@@ -44,6 +46,11 @@ const gridMaker = (phoneDetails) =>
 
     const { storage , displaySize , chipSet , memory , sensors }= phoneDetails.mainFeatures;
 
+    if(releaseDate === "")
+    {
+        releaseDate = "Not available";
+    }
+
     console.log(sensors);
     const grid =
     `
@@ -58,7 +65,7 @@ const gridMaker = (phoneDetails) =>
 
           <h2 class="card-title">${phoneBrand} ${phoneName}</h2>
           
-          <p class="card-text ">ReleaseDate: ${releaseDate}</p>
+          <p class="card-text ">Release Date: ${releaseDate}</p>
           <p class="card-text ">Display: ${displaySize}</p>
           <p class="card-text ">Chipset : ${chipSet}</p>
           <p class="card-text ">Storage : ${storage}</p>
@@ -169,10 +176,12 @@ const displayData = (mobileDetails) =>
         resultMessage = `Search Result for ${brandName}`
         const dataArray = mobileDetails.data;
 
-        const cardDiv = document.getElementById("cardDiv");
+        let cardDiv = document.getElementById("cardDiv");
 
         let i = 0;
-
+         
+        cardDiv.innerHTML = "";
+        
         for(const data of dataArray) 
         {
             i++;
@@ -182,11 +191,15 @@ const displayData = (mobileDetails) =>
             }
             else
             {
+                
+                card = cardMaker(data);
                 const gridContainer  = document.createElement("div");
+
                 gridContainer.innerHTML =
                 `
-                    ${cardMaker(data)}
+                    ${card}
                 `;
+
                 cardDiv.append(gridContainer);
 
             }  
