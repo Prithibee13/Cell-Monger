@@ -1,12 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
+
+
+h1,h2,h3,h4
+{
+  font-family: 'Roboto Condensed', sans-serif;;
+}
+
+p
+{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .header
 {
   color: #546de5;
+  font-family: 'Fredoka', sans-serif;;
 }
+
+
 
 
 #Search
 {
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 #form
@@ -35,7 +55,7 @@
 
 #phones
 {
-  margin-top: 20%;
+  margin-top: 10%;
   margin-bottom: 5%;
 }
 
