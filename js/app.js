@@ -126,20 +126,47 @@ const apiFetching =  () =>
 
 const displayData = (mobileDetails) =>
 {
-    const dataArray = mobileDetails.data;
+    console.log(mobileDetails);
 
-    const cardDiv = document.getElementById("cardDiv");
+    let brandName = document.getElementById("src").value;
 
+    let resultMessage;
     
-
-    for(const data of dataArray) 
+    if(mobileDetails.status===false)
     {
-        const gridContainer  = document.createElement("div");
-        gridContainer.innerHTML = `
-            ${cardMaker(data)}
-        `
-        cardDiv.append(gridContainer);
+        resultMessage = `No phones found of ${brandName}`; 
+    }
 
-    };
+    else
+    {
+        resultMessage = `Search Result for ${brandName}`
+        const dataArray = mobileDetails.data;
+
+        const cardDiv = document.getElementById("cardDiv");
+
+        let i = 0;
+
+        for(const data of dataArray) 
+        {
+            i++;
+            if(i>20)
+            {
+                break;
+            }
+            else
+            {
+                const gridContainer  = document.createElement("div");
+                gridContainer.innerHTML =
+                `
+                    ${cardMaker(data)}
+                `;
+                cardDiv.append(gridContainer);
+
+            }  
+        };
+    }
+
+    document.getElementById("result").innerText = resultMessage;
+    
 }
 

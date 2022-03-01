@@ -22,17 +22,18 @@
     <body>
 
         <header class="mb-5 mt-5">
+            <h1 class="text-center mb-5 py-5 header" id="">CELL MONGER</h1>
             <div class="container " data-aos="fade-up">
-                <div class="row d-flex align-items-center">
+                <div class="row g-5 d-flex align-items-center">
                         <div class="col-md-6 col-12">
                             <div class="">
-                                <h1 class="text-center">CELL MONGER</h1>
+                                <h1 class="">Welcome at <span class="header">CELL MONGER</span> </h1>
                                 <h2>We Deals With Future</h2>
                             </div>
                             
                         </div>
                         <div class="col-md-6 col-12">
-                            <img class="img-fluid" src="https://images.unsplash.com/photo-1546027658-7aa750153465?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1vYmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                            <img class="w-100 rounded" src="https://cdn.pixabay.com/photo/2016/02/10/16/39/girl-1192032__340.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -40,18 +41,21 @@
         </header>
 
         <section id="Search">
+            <h2 class="text-center py-5 mb-5">Search Our Products Here</h2>
             <div class="container" data-aos="fade-up">
 
-                <div class="row d-flex align-items-center">
+                <div class="row g-5 d-flex align-items-center">
                     <div class="col-md-6 col-12">
-                        <div class="mx-auto">
-                            <input type="text" name="" id="src" class="form-control-lg" placeholder="Search Your Phone">
+                        <img class="w-100 rounded" src="https://images.unsplash.com/photo-1501162946741-4960f990fdf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1vYmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="p-5 mt-5 mb-5 shadow-lg text-center rounded" id="form">
+                            <h2 class="text-center mb-3 py-3">Search Phone By Brand</h2>
+                            <input type="text mt-2 mb-3" name="" id="src" class="form-control-lg" placeholder="Search Your Phone">
                             <button class="btn-p" id="btn" onclick="apiFetching()">Search</button>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <img class="img-fluid" src="https://images.unsplash.com/photo-1501162946741-4960f990fdf4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fG1vYmlsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="">
-                    </div>
+                    
                 </div>
                 
             </div>
@@ -74,7 +78,8 @@
               </div>
         </section>
 
-        <section>
+        <section id="phones">
+            <h2 class="text-center py-5 mb-5" id="result"></h2>
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-3 g-5" id="cardDiv">
 

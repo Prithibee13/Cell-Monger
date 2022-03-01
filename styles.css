@@ -1,4 +1,10 @@
-#Scearch
+.header
+{
+  color: #546de5;
+}
+
+
+#Search
 {
     margin-top: 20%;
 }
@@ -9,11 +15,22 @@
     background-color: #546de5;
     color: white;
     border: 2px solid transparent;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
+
 
 #spin
 {
   display: none;
+}
+
+#phones
+{
+  margin-top: 20%;
+  margin-bottom: 5%;
 }
 
 #details
